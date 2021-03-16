@@ -1,0 +1,43 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: elasticsearch
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.106.245.51:3306/springcloud?characterEconding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  rabbitmq:
+    host: www.auroragames.cn
+    port: 5672
+    username: guest
+    password: guest
+    # ∑¢ÀÕ ß∞‹ÕÀªÿ
+    publisher-returns: true
+    template:
+      mandatory: true
+      reply-timeout: 10000ms
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 3
+          max-interval: 30000ms
+          initial-interval: 5000ms
+          multiplier: 3
+        acknowledge-mode: manual
+        default-requeue-rejected: false
+    virtual-host: /
+  redis:
+    database: 1
+    host: 47.106.245.51
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+    password: 123456
