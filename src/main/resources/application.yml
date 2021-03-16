@@ -10,12 +10,11 @@ spring:
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
   rabbitmq:
-    host: www.auroragames.cn
+    host: 47.106.245.51
     port: 5672
     username: guest
     password: guest
-    # ·¢ËÍÊ§°ÜÍË»Ø
-    publisher-returns: true
+    publisher-returns: true #·¢ËÍÊ§°Ü¾Ü¾ø
     template:
       mandatory: true
       reply-timeout: 10000ms
@@ -31,7 +30,7 @@ spring:
         default-requeue-rejected: false
     virtual-host: /
   redis:
-    database: 1
+    database: 0
     host: 47.106.245.51
     port: 6379
     lettuce:
@@ -41,3 +40,9 @@ spring:
         max-idle: 10
         min-idle: 0
     password: 123456
+  elasticsearch:
+    rest:
+      username: elastic
+      password: Chujiaxin0823_
+      connection-timeout: 10
+      uris: http://es-cn-m7r2356z6003na6rj.public.elasticsearch.aliyuncs.com:9200
